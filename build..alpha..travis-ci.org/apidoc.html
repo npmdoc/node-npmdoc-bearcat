@@ -1,0 +1,875 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/bearcatjs/bearcat"
+
+    >bearcat (v0.4.29)</a>
+</h1>
+<h4>Magic, self-described javaScript objects build up elastic, maintainable front-backend javaScript applications</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bearcat">module bearcat</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.async">
+            function <span class="apidocSignatureSpan">bearcat.</span>async
+            <span class="apidocSignatureSpan">(ids, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.call">
+            function <span class="apidocSignatureSpan">bearcat.</span>call
+            <span class="apidocSignatureSpan">(beanName, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.createApp">
+            function <span class="apidocSignatureSpan">bearcat.</span>createApp
+            <span class="apidocSignatureSpan">(configLocations, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.define">
+            function <span class="apidocSignatureSpan">bearcat.</span>define
+            <span class="apidocSignatureSpan">(id, factory, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.extend">
+            function <span class="apidocSignatureSpan">bearcat.</span>extend
+            <span class="apidocSignatureSpan">(beanName, superBeanName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getApplicationContext">
+            function <span class="apidocSignatureSpan">bearcat.</span>getApplicationContext
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getBean">
+            function <span class="apidocSignatureSpan">bearcat.</span>getBean
+            <span class="apidocSignatureSpan">(beanName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getBeanByFunc">
+            function <span class="apidocSignatureSpan">bearcat.</span>getBeanByFunc
+            <span class="apidocSignatureSpan">(func)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getBeanByMeta">
+            function <span class="apidocSignatureSpan">bearcat.</span>getBeanByMeta
+            <span class="apidocSignatureSpan">(meta)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getBeanFactory">
+            function <span class="apidocSignatureSpan">bearcat.</span>getBeanFactory
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getClass">
+            function <span class="apidocSignatureSpan">bearcat.</span>getClass
+            <span class="apidocSignatureSpan">(beanName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getFunction">
+            function <span class="apidocSignatureSpan">bearcat.</span>getFunction
+            <span class="apidocSignatureSpan">(beanName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getModel">
+            function <span class="apidocSignatureSpan">bearcat.</span>getModel
+            <span class="apidocSignatureSpan">(modelId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.getRoute">
+            function <span class="apidocSignatureSpan">bearcat.</span>getRoute
+            <span class="apidocSignatureSpan">(beanName, fnName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.module">
+            function <span class="apidocSignatureSpan">bearcat.</span>module
+            <span class="apidocSignatureSpan">(func, context)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.require">
+            function <span class="apidocSignatureSpan">bearcat.</span>require
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.start">
+            function <span class="apidocSignatureSpan">bearcat.</span>start
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.stop">
+            function <span class="apidocSignatureSpan">bearcat.</span>stop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.use">
+            function <span class="apidocSignatureSpan">bearcat.</span>use
+            <span class="apidocSignatureSpan">(ids)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">bearcat.</span>state</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>applicationContext</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>chokidar</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>configLocations</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>logger</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>opts</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">bearcat.</span>startTime</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">bearcat.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bearcat.chokidar">module bearcat.chokidar</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.chokidar.watch">
+            function <span class="apidocSignatureSpan">bearcat.chokidar.</span>watch
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.bearcat.logger">module bearcat.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.bearcat.logger.getLogger">
+            function <span class="apidocSignatureSpan">bearcat.logger.</span>getLogger
+            <span class="apidocSignatureSpan">(categoryName)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bearcat" id="apidoc.module.bearcat">module bearcat</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.async" id="apidoc.element.bearcat.async">
+        function <span class="apidocSignatureSpan">bearcat.</span>async
+        <span class="apidocSignatureSpan">(ids, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">async = function (ids, cb) {
+	if (Utils.checkArray(ids)) {
+		return this.applicationContext.async(ids, cb);
+	}
+
+	if (Utils.checkString(ids)) {
+		return this.applicationContext.async([ids], cb);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.call" id="apidoc.element.bearcat.call">
+        function <span class="apidocSignatureSpan">bearcat.</span>call
+        <span class="apidocSignatureSpan">(beanName, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">call = function (beanName, context) {
+	var beanFunction = Bearcat.getFunction(beanName);
+
+	if (!beanFunction) {
+		logger.error(&#x27;[bearcat.call] bean function %s not exist&#x27;, beanName);
+		return;
+	}
+
+	var args = Array.prototype.slice.call(arguments, 2);
+	beanFunction.apply(context, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.createApp" id="apidoc.element.bearcat.createApp">
+        function <span class="apidocSignatureSpan">bearcat.</span>createApp
+        <span class="apidocSignatureSpan">(configLocations, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createApp = function (configLocations, opts) {
+	if (this.state &#x3e;= STATE_INITED) {
+		Bearcat.stop();
+	}
+
+	if (!Utils.checkArray(configLocations) &#x26;&#x26; Utils.checkObject(configLocations)) {
+		opts = configLocations;
+		configLocations = [];
+	}
+
+	this.opts = opts || {};
+	this.configLocations = configLocations || [];
+
+	if (this.opts[&#x27;BEARCAT_GLOBAL&#x27;]) {
+		Root.bearcat = Bearcat;
+	}
+
+	if (!Utils.checkObject(this.opts)) {
+		logger.warn(&#x27;Bearcat createApp opts must be object...&#x27;);
+	}
+
+	this.applicationContext = new ApplicationContext(this.configLocations, this.opts);
+
+	this.state = STATE_INITED;
+	return Bearcat;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.define" id="apidoc.element.bearcat.define">
+        function <span class="apidocSignatureSpan">bearcat.</span>define
+        <span class="apidocSignatureSpan">(id, factory, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (id, factory, context) {
+	return this.applicationContext.define(id, factory, context);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.extend" id="apidoc.element.bearcat.extend">
+        function <span class="apidocSignatureSpan">bearcat.</span>extend
+        <span class="apidocSignatureSpan">(beanName, superBeanName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (beanName, superBeanName) {
+	if (!beanName || !superBeanName) {
+		logger.error(&#x27;[bearcat.extend] beanName or superBeanName can not be null&#x27;);
+		return;
+	}
+
+	this.applicationContext.extendBean(beanName, superBeanName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getApplicationContext" id="apidoc.element.bearcat.getApplicationContext">
+        function <span class="apidocSignatureSpan">bearcat.</span>getApplicationContext
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getApplicationContext = function () {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getApplicationContext&#x22;);
+		return;
+	}
+
+	return this.applicationContext;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getBean" id="apidoc.element.bearcat.getBean">
+        function <span class="apidocSignatureSpan">bearcat.</span>getBean
+        <span class="apidocSignatureSpan">(beanName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBean = function (beanName) {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getBean&#x22;, beanName, this.state);
+		return;
+	}
+
+	var firstarg = beanName;
+	var func = &#x22;&#x22;;
+	if (Utils.checkObject(firstarg)) {
+		func = &#x22;getBeanByMeta&#x22;;
+	} else if (Utils.checkFunction(firstarg)) {
+		func = &#x22;getBeanByFunc&#x22;;
+	} else if (Utils.checkString(firstarg)) {
+		func = &#x22;getBean&#x22;;
+	} else {
+		logger.error(&#x27;Bearcat application unsupported getBean arguments for %s&#x27;, beanName);
+		return;
+	}
+
+	return this.applicationContext[func].apply(this.applicationContext, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getBeanByFunc" id="apidoc.element.bearcat.getBeanByFunc">
+        function <span class="apidocSignatureSpan">bearcat.</span>getBeanByFunc
+        <span class="apidocSignatureSpan">(func)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBeanByFunc = function (func) {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanByFunc&#x22;);
+		return;
+	}
+
+	return this.applicationContext.getBeanByFunc(func);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getBeanByMeta" id="apidoc.element.bearcat.getBeanByMeta">
+        function <span class="apidocSignatureSpan">bearcat.</span>getBeanByMeta
+        <span class="apidocSignatureSpan">(meta)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBeanByMeta = function (meta) {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s %j&#x27;, &#x22;getBeanByMeta&#x22;, meta);
+		return;
+	}
+
+	return this.applicationContext.getBeanByMeta(meta);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getBeanFactory" id="apidoc.element.bearcat.getBeanFactory">
+        function <span class="apidocSignatureSpan">bearcat.</span>getBeanFactory
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getBeanFactory = function () {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanFactory&#x22;);
+		return;
+	}
+
+	return this.applicationContext.getBeanFactory();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getClass" id="apidoc.element.bearcat.getClass">
+        function <span class="apidocSignatureSpan">bearcat.</span>getClass
+        <span class="apidocSignatureSpan">(beanName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getClass = function (beanName) {
+	return Bearcat.getFunction(beanName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getFunction" id="apidoc.element.bearcat.getFunction">
+        function <span class="apidocSignatureSpan">bearcat.</span>getFunction
+        <span class="apidocSignatureSpan">(beanName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFunction = function (beanName) {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getFunction&#x22;, beanName, this.state);
+		return;
+	}
+
+	return this.applicationContext.getBeanFunction(beanName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getModel" id="apidoc.element.bearcat.getModel">
+        function <span class="apidocSignatureSpan">bearcat.</span>getModel
+        <span class="apidocSignatureSpan">(modelId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getModel = function (modelId) {
+	if (this.state &#x3c;= STATE_INITED) {
+		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getModel&#x22;, modelId, this.state);
+		return;
+	}
+
+	return this.applicationContext.getModel(modelId);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.getRoute" id="apidoc.element.bearcat.getRoute">
+        function <span class="apidocSignatureSpan">bearcat.</span>getRoute
+        <span class="apidocSignatureSpan">(beanName, fnName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRoute = function (beanName, fnName) {
+	if (this.state !== STATE_STARTED) {
+		return;
+	}
+
+	var bean = this.getBean(beanName);
+	return bean[fnName].bind(bean);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.module" id="apidoc.element.bearcat.module">
+        function <span class="apidocSignatureSpan">bearcat.</span>module
+        <span class="apidocSignatureSpan">(func, context)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">module = function (func, context) {
+	if (this.state &#x3c; STATE_STARTED) {
+		return this.applicationContext.module(func, context);
+	} else {
+		return this.getBean(func);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.require" id="apidoc.element.bearcat.require">
+        function <span class="apidocSignatureSpan">bearcat.</span>require
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">require = function (id) {
+	return this.applicationContext.require(id);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.start" id="apidoc.element.bearcat.start">
+        function <span class="apidocSignatureSpan">bearcat.</span>start
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function (cb) {
+	if (!Utils.checkFunction(cb)) {
+		cb = function() {}
+	}
+
+	if (this.state &#x3e; STATE_INITED) {
+		logger.warn(&#x27;Bearcat has already start, run bearcat.stop to start again.&#x27;);
+		return cb();
+	}
+
+	if (this.state &#x3c; STATE_INITED) {
+		logger.warn(&#x27;Bearcat does not inited, run bearcat.createApp to init.&#x27;);
+		return cb();
+	}
+
+	this.state = STATE_START;
+	this.startTime = Date.now();
+	var self = this;
+
+	var env = &#x22;&#x22;;
+
+	if (Utils.checkBrowser()) {
+		env = &#x27;browser&#x27;;
+		this.applicationContext.setEnv(env);
+	}
+
+	if (Utils.checkCocos2dJsb()) {
+		env = &#x27;cocos2djsb&#x27;;
+		this.applicationContext.setEnv(env);
+	}
+
+	this.applicationContext.on(&#x27;finishRefresh&#x27;, function() {
+		self.state = STATE_STARTED;
+		env = self.applicationContext.getEnv();
+		logger.info(&#x27;Bearcat startup in %s with %s ms&#x27;, env, Date.now() - self.startTime);
+		cb();
+	});
+
+	this.applicationContext.on(&#x27;reload&#x27;, function() {
+		self.emit(&#x27;reload&#x27;);
+	});
+
+	this.applicationContext.refresh();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.stop" id="apidoc.element.bearcat.stop">
+        function <span class="apidocSignatureSpan">bearcat.</span>stop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stop = function () {
+	if (this.applicationContext) {
+		this.applicationContext.destroy();
+	}
+	this.applicationContext = null;
+	this.configLocations = null;
+	this.startTime = null;
+	this.state = STATE_NEW;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.use" id="apidoc.element.bearcat.use">
+        function <span class="apidocSignatureSpan">bearcat.</span>use
+        <span class="apidocSignatureSpan">(ids)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">use = function (ids) {
+	if (Utils.checkArray(ids)) {
+		return this.applicationContext.use(ids);
+	}
+
+	if (Utils.checkString(ids)) {
+		return this.applicationContext.use([ids]);
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bearcat.chokidar" id="apidoc.module.bearcat.chokidar">module bearcat.chokidar</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.chokidar.watch" id="apidoc.element.bearcat.chokidar.watch">
+        function <span class="apidocSignatureSpan">bearcat.chokidar.</span>watch
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">watch = function () {
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.bearcat.logger" id="apidoc.module.bearcat.logger">module bearcat.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.bearcat.logger.getLogger" id="apidoc.element.bearcat.logger.getLogger">
+        function <span class="apidocSignatureSpan">bearcat.logger.</span>getLogger
+        <span class="apidocSignatureSpan">(categoryName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getLogger(categoryName) {
+	if (typeof console.log !== &#x27;function&#x27;) {
+		return console;
+	}
+
+	var args = arguments;
+	var prefix = &#x22;&#x22;;
+	for (var i = 1; i &#x3c; args.length; i++) {
+		if (i !== args.length - 1)
+			prefix = prefix + args[i] + &#x22;] [&#x22;;
+		else
+			prefix = prefix + args[i];
+	}
+	if (typeof categoryName === &#x27;string&#x27;) {
+		// category name is __filename then cut the prefix path
+		categoryName = categoryName.replace(process.cwd(), &#x27;&#x27;);
+	}
+	var levels = [&#x27;log&#x27;, &#x27;debug&#x27;, &#x27;info&#x27;, &#x27;warn&#x27;, &#x27;error&#x27;, &#x27;trace&#x27;];
+
+	var logger = {};
+	if (checkCocos2dJsb()) {
+		for (var i = 0; i &#x3c; levels.length; i++) {
+			var level = levels[i];
+			if (cc[level]) {
+				logger[level] = cc[level];
+			} else {
+				logger[level] = cc.log;
+			}
+		}
+	} else {
+		logger = console;
+	}
+
+	var pLogger = {};
+	for (var key in logger) {
+		pLogger[key] = logger[key];
+	}
+
+	for (var i = 0; i &#x3c; levels.length; i++) {
+		(function(item) {
+			pLogger[item] = function() {
+				var p = &#x22;&#x22;;
+				if (!process.env.RAW_MESSAGE) {
+					if (args.length &#x3e; 1) {
+						p = &#x22;[&#x22; + prefix + &#x22;] &#x22;;
+					}
+					if (args.length &#x26;&#x26; process.env.LOGGER_LINE) {
+						p = getLine() + &#x22;: &#x22; + p;
+					}
+				}
+
+				if (args.length) {
+					arguments[0] = p + arguments[0];
+				}
+
+				logger[item].apply(logger, arguments);
+			}
+		})(levels[i]);
+	}
+
+	return pLogger;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
