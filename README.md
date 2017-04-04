@@ -3,7 +3,7 @@
 
 [![NPM](https://nodei.co/npm/bearcat.png?downloads=true)](https://www.npmjs.com/package/bearcat)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-bearcat/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-bearcat_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-bearcat/build..beta..travis-ci.org/apidoc.html)
+[![apidoc](https://npmdoc.github.io/node-npmdoc-bearcat/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-bearcat_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-bearcat/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-bearcat/build/screenCapture.npmPackageListing.svg)
 
