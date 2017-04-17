@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/bearcatjs/bearcat"
-
-    >bearcat (v0.4.29)</a>
+    <a href="https://github.com/bearcatjs/bearcat">bearcat (v0.4.29)</a>
 </h1>
 <h4>Magic, self-described javaScript objects build up elastic, maintainable front-backend javaScript applications</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.bearcat">module bearcat</a><ol>
 
@@ -637,7 +630,7 @@
 	var beanFunction = Bearcat.getFunction(beanName);
 
 	if (!beanFunction) {
-		logger.error(&#x27;[bearcat.call] bean function %s not exist&#x27;, beanName);
+		logger.error('[bearcat.call] bean function %s not exist', beanName);
 		return;
 	}
 
@@ -670,11 +663,11 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">createApp = function (configLocations, opts) {
-	if (this.state &#x3e;= STATE_INITED) {
+	if (this.state &gt;= STATE_INITED) {
 		Bearcat.stop();
 	}
 
-	if (!Utils.checkArray(configLocations) &#x26;&#x26; Utils.checkObject(configLocations)) {
+	if (!Utils.checkArray(configLocations) &amp;&amp; Utils.checkObject(configLocations)) {
 		opts = configLocations;
 		configLocations = [];
 	}
@@ -682,12 +675,12 @@
 	this.opts = opts || {};
 	this.configLocations = configLocations || [];
 
-	if (this.opts[&#x27;BEARCAT_GLOBAL&#x27;]) {
+	if (this.opts['BEARCAT_GLOBAL']) {
 		Root.bearcat = Bearcat;
 	}
 
 	if (!Utils.checkObject(this.opts)) {
-		logger.warn(&#x27;Bearcat createApp opts must be object...&#x27;);
+		logger.warn('Bearcat createApp opts must be object...');
 	}
 
 	this.applicationContext = new ApplicationContext(this.configLocations, this.opts);
@@ -724,7 +717,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">extend = function (beanName, superBeanName) {
 	if (!beanName || !superBeanName) {
-		logger.error(&#x27;[bearcat.extend] beanName or superBeanName can not be null&#x27;);
+		logger.error('[bearcat.extend] beanName or superBeanName can not be null');
 		return;
 	}
 
@@ -743,8 +736,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getApplicationContext = function () {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getApplicationContext&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getApplicationContext");
 		return;
 	}
 
@@ -763,21 +756,21 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBean = function (beanName) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getBean&#x22;, beanName, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getBean", beanName, this.state);
 		return;
 	}
 
 	var firstarg = beanName;
-	var func = &#x22;&#x22;;
+	var func = "";
 	if (Utils.checkObject(firstarg)) {
-		func = &#x22;getBeanByMeta&#x22;;
+		func = "getBeanByMeta";
 	} else if (Utils.checkFunction(firstarg)) {
-		func = &#x22;getBeanByFunc&#x22;;
+		func = "getBeanByFunc";
 	} else if (Utils.checkString(firstarg)) {
-		func = &#x22;getBean&#x22;;
+		func = "getBean";
 	} else {
-		logger.error(&#x27;Bearcat application unsupported getBean arguments for %s&#x27;, beanName);
+		logger.error('Bearcat application unsupported getBean arguments for %s', beanName);
 		return;
 	}
 
@@ -796,8 +789,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanByFunc = function (func) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanByFunc&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getBeanByFunc");
 		return;
 	}
 
@@ -816,8 +809,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanByMeta = function (meta) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %j&#x27;, &#x22;getBeanByMeta&#x22;, meta);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %j', "getBeanByMeta", meta);
 		return;
 	}
 
@@ -836,8 +829,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanFactory = function () {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanFactory&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getBeanFactory");
 		return;
 	}
 
@@ -871,8 +864,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getFunction = function (beanName) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getFunction&#x22;, beanName, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getFunction", beanName, this.state);
 		return;
 	}
 
@@ -891,8 +884,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getModel = function (modelId) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getModel&#x22;, modelId, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getModel", modelId, this.state);
 		return;
 	}
 
@@ -932,53 +925,53 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
 
-  grunt.loadNpmTasks(&#x27;grunt-browserify&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-mocha-test&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-contrib-clean&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-contrib-uglify&#x27;);
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  var src = [&#x27;test/bearcat.js&#x27;, &#x27;test/beans/support/*.js&#x27;, &#x27;test/context/applicationContext.js&#x27;, &#x27;test/util/*.js&#x27;,
-    &#x27;test/resource/*.js&#x27;, &#x27;test/aop/aop.js&#x27;, &#x27;test/aop/aop_annotation.js&#x27;, &#x27;test/aop/advisor.js&#x27;, &#x27;test/aop/aspect.js&#x27;,
-    &#x27;test/aop/framework/*.js&#x27;, &#x27;test/aop/pointcut.js&#x27;, &#x27;test/aop/targetSource.js&#x27;, &#x27;test/beans/*.js&#x27;, &#x27;test/model/*.js&#x27;
+  var src = ['test/bearcat.js', 'test/beans/support/*.js', 'test/context/applicationContext.js', 'test/util/*.js',
+    'test/resource/*.js', 'test/aop/aop.js', 'test/aop/aop_annotation.js', 'test/aop/advisor.js', 'test/aop/aspect.js',
+    'test/aop/framework/*.js', 'test/aop/pointcut.js', 'test/aop/targetSource.js', 'test/beans/*.js', 'test/model/*.js'
   ];
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+    pkg: grunt.file.readJSON('package.json'),
     mochaTest: {
       dot: {
         options: {
-          reporter: &#x27;dot&#x27;,
+          reporter: 'dot',
           timeout: 100000,
-          require: &#x27;coverage/blanket&#x27;
+          require: 'coverage/blanket'
         },
         src: src
       },
       coverage: {
         options: {
-          reporter: &#x27;html-cov&#x27;,
+          reporter: 'html-cov',
           quiet: true,
-          captureFile: &#x27;coverage.html&#x27;
+          captureFile: 'coverage.html'
         },
         src: src
       }
     },
     clean: {
-      &#x22;coverage.html&#x22;: {
-        src: [&#x27;coverage.html&#x27;]
+      "coverage.html": {
+        src: ['coverage.html']
       }
     },
     browserify: {
       tests: {
         src: src,
-        dest: &#x27;./test/browser/browserified_tests.js&#x27;
+        dest: './test/browser/browserified_tests.js'
       },
       standalone: {
-        src: [&#x27;index.js&#x27;],
-        dest: &#x27;./dist/bearcat.js&#x27;,
+        src: ['index.js'],
+        dest: './dist/bearcat.js',
         options: {
           browserifyOptions: {
-            standalone: &#x27;bearcat&#x27;
+            standalone: 'bearcat'
           }
         }
       }
@@ -986,16 +979,16 @@
     uglify: {
       dist: {
         files: {
-          &#x27;./dist/bearcat.min.js&#x27;: [&#x27;&#x3c;%= browserify.standalone.dest %&#x3e;&#x27;],
+          './dist/bearcat.min.js': ['&lt;%= browserify.standalone.dest %&gt;'],
         }
       }
     },
   });
 
   // Default task.
-  grunt.registerTask(&#x27;default&#x27;, [&#x27;clean&#x27;, &#x27;mochaTest&#x27;]);
-  grunt.registerTask(&#x27;browser_test&#x27;, [&#x27;browserify:tests&#x27;]);
-  grunt.registerTask(&#x27;package&#x27;, [&#x27;browserify:standalone&#x27;, &#x27;uglify&#x27;]);
+  grunt.registerTask('default', ['clean', 'mochaTest']);
+  grunt.registerTask('browser_test', ['browserify:tests']);
+  grunt.registerTask('package', ['browserify:standalone', 'uglify']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1010,7 +1003,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">module = function (func, context) {
-	if (this.state &#x3c; STATE_STARTED) {
+	if (this.state &lt; STATE_STARTED) {
 		return this.applicationContext.module(func, context);
 	} else {
 		return this.getBean(func);
@@ -1048,13 +1041,13 @@
 		cb = function() {}
 	}
 
-	if (this.state &#x3e; STATE_INITED) {
-		logger.warn(&#x27;Bearcat has already start, run bearcat.stop to start again.&#x27;);
+	if (this.state &gt; STATE_INITED) {
+		logger.warn('Bearcat has already start, run bearcat.stop to start again.');
 		return cb();
 	}
 
-	if (this.state &#x3c; STATE_INITED) {
-		logger.warn(&#x27;Bearcat does not inited, run bearcat.createApp to init.&#x27;);
+	if (this.state &lt; STATE_INITED) {
+		logger.warn('Bearcat does not inited, run bearcat.createApp to init.');
 		return cb();
 	}
 
@@ -1062,27 +1055,27 @@
 	this.startTime = Date.now();
 	var self = this;
 
-	var env = &#x22;&#x22;;
+	var env = "";
 
 	if (Utils.checkBrowser()) {
-		env = &#x27;browser&#x27;;
+		env = 'browser';
 		this.applicationContext.setEnv(env);
 	}
 
 	if (Utils.checkCocos2dJsb()) {
-		env = &#x27;cocos2djsb&#x27;;
+		env = 'cocos2djsb';
 		this.applicationContext.setEnv(env);
 	}
 
-	this.applicationContext.on(&#x27;finishRefresh&#x27;, function() {
+	this.applicationContext.on('finishRefresh', function() {
 		self.state = STATE_STARTED;
 		env = self.applicationContext.getEnv();
-		logger.info(&#x27;Bearcat startup in %s with %s ms&#x27;, env, Date.now() - self.startTime);
+		logger.info('Bearcat startup in %s with %s ms', env, Date.now() - self.startTime);
 		cb();
 	});
 
-	this.applicationContext.on(&#x27;reload&#x27;, function() {
-		self.emit(&#x27;reload&#x27;);
+	this.applicationContext.on('reload', function() {
+		self.emit('reload');
 	});
 
 	this.applicationContext.refresh();
@@ -1245,11 +1238,11 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">createApp = function (configLocations, opts) {
-	if (this.state &#x3e;= STATE_INITED) {
+	if (this.state &gt;= STATE_INITED) {
 		Bearcat.stop();
 	}
 
-	if (!Utils.checkArray(configLocations) &#x26;&#x26; Utils.checkObject(configLocations)) {
+	if (!Utils.checkArray(configLocations) &amp;&amp; Utils.checkObject(configLocations)) {
 		opts = configLocations;
 		configLocations = [];
 	}
@@ -1257,12 +1250,12 @@
 	this.opts = opts || {};
 	this.configLocations = configLocations || [];
 
-	if (this.opts[&#x27;BEARCAT_GLOBAL&#x27;]) {
+	if (this.opts['BEARCAT_GLOBAL']) {
 		Root.bearcat = Bearcat;
 	}
 
 	if (!Utils.checkObject(this.opts)) {
-		logger.warn(&#x27;Bearcat createApp opts must be object...&#x27;);
+		logger.warn('Bearcat createApp opts must be object...');
 	}
 
 	this.applicationContext = new ApplicationContext(this.configLocations, this.opts);
@@ -1309,7 +1302,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">extend = function (beanName, superBeanName) {
 	if (!beanName || !superBeanName) {
-		logger.error(&#x27;[bearcat.extend] beanName or superBeanName can not be null&#x27;);
+		logger.error('[bearcat.extend] beanName or superBeanName can not be null');
 		return;
 	}
 
@@ -1333,8 +1326,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getApplicationContext = function () {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getApplicationContext&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getApplicationContext");
 		return;
 	}
 
@@ -1358,21 +1351,21 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBean = function (beanName) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getBean&#x22;, beanName, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getBean", beanName, this.state);
 		return;
 	}
 
 	var firstarg = beanName;
-	var func = &#x22;&#x22;;
+	var func = "";
 	if (Utils.checkObject(firstarg)) {
-		func = &#x22;getBeanByMeta&#x22;;
+		func = "getBeanByMeta";
 	} else if (Utils.checkFunction(firstarg)) {
-		func = &#x22;getBeanByFunc&#x22;;
+		func = "getBeanByFunc";
 	} else if (Utils.checkString(firstarg)) {
-		func = &#x22;getBean&#x22;;
+		func = "getBean";
 	} else {
-		logger.error(&#x27;Bearcat application unsupported getBean arguments for %s&#x27;, beanName);
+		logger.error('Bearcat application unsupported getBean arguments for %s', beanName);
 		return;
 	}
 
@@ -1396,8 +1389,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanByFunc = function (func) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanByFunc&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getBeanByFunc");
 		return;
 	}
 
@@ -1421,8 +1414,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanByMeta = function (meta) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %j&#x27;, &#x22;getBeanByMeta&#x22;, meta);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %j', "getBeanByMeta", meta);
 		return;
 	}
 
@@ -1446,8 +1439,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getBeanFactory = function () {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s&#x27;, &#x22;getBeanFactory&#x22;);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s', "getBeanFactory");
 		return;
 	}
 
@@ -1491,8 +1484,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getFunction = function (beanName) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getFunction&#x22;, beanName, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getFunction", beanName, this.state);
 		return;
 	}
 
@@ -1516,8 +1509,8 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">getModel = function (modelId) {
-	if (this.state &#x3c;= STATE_INITED) {
-		logger.warn(&#x27;Bearcat application is not running now for %s %s state: %d&#x27;, &#x22;getModel&#x22;, modelId, this.state);
+	if (this.state &lt;= STATE_INITED) {
+		logger.warn('Bearcat application is not running now for %s %s state: %d', "getModel", modelId, this.state);
 		return;
 	}
 
@@ -1567,53 +1560,53 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">gruntfile = function (grunt) {
 
-  grunt.loadNpmTasks(&#x27;grunt-browserify&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-mocha-test&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-contrib-clean&#x27;);
-  grunt.loadNpmTasks(&#x27;grunt-contrib-uglify&#x27;);
+  grunt.loadNpmTasks('grunt-browserify');
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  var src = [&#x27;test/bearcat.js&#x27;, &#x27;test/beans/support/*.js&#x27;, &#x27;test/context/applicationContext.js&#x27;, &#x27;test/util/*.js&#x27;,
-    &#x27;test/resource/*.js&#x27;, &#x27;test/aop/aop.js&#x27;, &#x27;test/aop/aop_annotation.js&#x27;, &#x27;test/aop/advisor.js&#x27;, &#x27;test/aop/aspect.js&#x27;,
-    &#x27;test/aop/framework/*.js&#x27;, &#x27;test/aop/pointcut.js&#x27;, &#x27;test/aop/targetSource.js&#x27;, &#x27;test/beans/*.js&#x27;, &#x27;test/model/*.js&#x27;
+  var src = ['test/bearcat.js', 'test/beans/support/*.js', 'test/context/applicationContext.js', 'test/util/*.js',
+    'test/resource/*.js', 'test/aop/aop.js', 'test/aop/aop_annotation.js', 'test/aop/advisor.js', 'test/aop/aspect.js',
+    'test/aop/framework/*.js', 'test/aop/pointcut.js', 'test/aop/targetSource.js', 'test/beans/*.js', 'test/model/*.js'
   ];
 
   // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON(&#x27;package.json&#x27;),
+    pkg: grunt.file.readJSON('package.json'),
     mochaTest: {
       dot: {
         options: {
-          reporter: &#x27;dot&#x27;,
+          reporter: 'dot',
           timeout: 100000,
-          require: &#x27;coverage/blanket&#x27;
+          require: 'coverage/blanket'
         },
         src: src
       },
       coverage: {
         options: {
-          reporter: &#x27;html-cov&#x27;,
+          reporter: 'html-cov',
           quiet: true,
-          captureFile: &#x27;coverage.html&#x27;
+          captureFile: 'coverage.html'
         },
         src: src
       }
     },
     clean: {
-      &#x22;coverage.html&#x22;: {
-        src: [&#x27;coverage.html&#x27;]
+      "coverage.html": {
+        src: ['coverage.html']
       }
     },
     browserify: {
       tests: {
         src: src,
-        dest: &#x27;./test/browser/browserified_tests.js&#x27;
+        dest: './test/browser/browserified_tests.js'
       },
       standalone: {
-        src: [&#x27;index.js&#x27;],
-        dest: &#x27;./dist/bearcat.js&#x27;,
+        src: ['index.js'],
+        dest: './dist/bearcat.js',
         options: {
           browserifyOptions: {
-            standalone: &#x27;bearcat&#x27;
+            standalone: 'bearcat'
           }
         }
       }
@@ -1621,16 +1614,16 @@
     uglify: {
       dist: {
         files: {
-          &#x27;./dist/bearcat.min.js&#x27;: [&#x27;&#x3c;%= browserify.standalone.dest %&#x3e;&#x27;],
+          './dist/bearcat.min.js': ['&lt;%= browserify.standalone.dest %&gt;'],
         }
       }
     },
   });
 
   // Default task.
-  grunt.registerTask(&#x27;default&#x27;, [&#x27;clean&#x27;, &#x27;mochaTest&#x27;]);
-  grunt.registerTask(&#x27;browser_test&#x27;, [&#x27;browserify:tests&#x27;]);
-  grunt.registerTask(&#x27;package&#x27;, [&#x27;browserify:standalone&#x27;, &#x27;uglify&#x27;]);
+  grunt.registerTask('default', ['clean', 'mochaTest']);
+  grunt.registerTask('browser_test', ['browserify:tests']);
+  grunt.registerTask('package', ['browserify:standalone', 'uglify']);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1650,27 +1643,27 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function getLogger(categoryName) {
-	if (typeof console.log !== &#x27;function&#x27;) {
+	if (typeof console.log !== 'function') {
 		return console;
 	}
 
 	var args = arguments;
-	var prefix = &#x22;&#x22;;
-	for (var i = 1; i &#x3c; args.length; i++) {
+	var prefix = "";
+	for (var i = 1; i &lt; args.length; i++) {
 		if (i !== args.length - 1)
-			prefix = prefix + args[i] + &#x22;] [&#x22;;
+			prefix = prefix + args[i] + "] [";
 		else
 			prefix = prefix + args[i];
 	}
-	if (typeof categoryName === &#x27;string&#x27;) {
+	if (typeof categoryName === 'string') {
 		// category name is __filename then cut the prefix path
-		categoryName = categoryName.replace(process.cwd(), &#x27;&#x27;);
+		categoryName = categoryName.replace(process.cwd(), '');
 	}
-	var levels = [&#x27;log&#x27;, &#x27;debug&#x27;, &#x27;info&#x27;, &#x27;warn&#x27;, &#x27;error&#x27;, &#x27;trace&#x27;];
+	var levels = ['log', 'debug', 'info', 'warn', 'error', 'trace'];
 
 	var logger = {};
 	if (checkCocos2dJsb()) {
-		for (var i = 0; i &#x3c; levels.length; i++) {
+		for (var i = 0; i &lt; levels.length; i++) {
 			var level = levels[i];
 			if (cc[level]) {
 				logger[level] = cc[level];
@@ -1687,16 +1680,16 @@
 		pLogger[key] = logger[key];
 	}
 
-	for (var i = 0; i &#x3c; levels.length; i++) {
+	for (var i = 0; i &lt; levels.length; i++) {
 		(function(item) {
 			pLogger[item] = function() {
-				var p = &#x22;&#x22;;
+				var p = "";
 				if (!process.env.RAW_MESSAGE) {
-					if (args.length &#x3e; 1) {
-						p = &#x22;[&#x22; + prefix + &#x22;] &#x22;;
+					if (args.length &gt; 1) {
+						p = "[" + prefix + "] ";
 					}
-					if (args.length &#x26;&#x26; process.env.LOGGER_LINE) {
-						p = getLine() + &#x22;: &#x22; + p;
+					if (args.length &amp;&amp; process.env.LOGGER_LINE) {
+						p = getLine() + ": " + p;
 					}
 				}
 
@@ -1729,7 +1722,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">module = function (func, context) {
-	if (this.state &#x3c; STATE_STARTED) {
+	if (this.state &lt; STATE_STARTED) {
 		return this.applicationContext.module(func, context);
 	} else {
 		return this.getBean(func);
@@ -1777,13 +1770,13 @@
 		cb = function() {}
 	}
 
-	if (this.state &#x3e; STATE_INITED) {
-		logger.warn(&#x27;Bearcat has already start, run bearcat.stop to start again.&#x27;);
+	if (this.state &gt; STATE_INITED) {
+		logger.warn('Bearcat has already start, run bearcat.stop to start again.');
 		return cb();
 	}
 
-	if (this.state &#x3c; STATE_INITED) {
-		logger.warn(&#x27;Bearcat does not inited, run bearcat.createApp to init.&#x27;);
+	if (this.state &lt; STATE_INITED) {
+		logger.warn('Bearcat does not inited, run bearcat.createApp to init.');
 		return cb();
 	}
 
@@ -1791,27 +1784,27 @@
 	this.startTime = Date.now();
 	var self = this;
 
-	var env = &#x22;&#x22;;
+	var env = "";
 
 	if (Utils.checkBrowser()) {
-		env = &#x27;browser&#x27;;
+		env = 'browser';
 		this.applicationContext.setEnv(env);
 	}
 
 	if (Utils.checkCocos2dJsb()) {
-		env = &#x27;cocos2djsb&#x27;;
+		env = 'cocos2djsb';
 		this.applicationContext.setEnv(env);
 	}
 
-	this.applicationContext.on(&#x27;finishRefresh&#x27;, function() {
+	this.applicationContext.on('finishRefresh', function() {
 		self.state = STATE_STARTED;
 		env = self.applicationContext.getEnv();
-		logger.info(&#x27;Bearcat startup in %s with %s ms&#x27;, env, Date.now() - self.startTime);
+		logger.info('Bearcat startup in %s with %s ms', env, Date.now() - self.startTime);
 		cb();
 	});
 
-	this.applicationContext.on(&#x27;reload&#x27;, function() {
-		self.emit(&#x27;reload&#x27;);
+	this.applicationContext.on('reload', function() {
+		self.emit('reload');
 	});
 
 	this.applicationContext.refresh();
@@ -1880,3 +1873,4 @@
     ]
 </div>
 </div>
+</body></html>
