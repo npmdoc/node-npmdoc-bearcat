@@ -1,4 +1,7 @@
-# api documentation for  [bearcat (v0.4.29)](https://github.com/bearcatjs/bearcat)  [![npm package](https://img.shields.io/npm/v/npmdoc-bearcat.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-bearcat) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-bearcat.svg)](https://travis-ci.org/npmdoc/node-npmdoc-bearcat)
+# npmdoc-bearcat
+
+#### basic api documentation for  [bearcat (v0.4.29)](https://github.com/bearcatjs/bearcat)  [![npm package](https://img.shields.io/npm/v/npmdoc-bearcat.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-bearcat) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-bearcat.svg)](https://travis-ci.org/npmdoc/node-npmdoc-bearcat)
+
 #### Magic, self-described javaScript objects build up elastic, maintainable front-backend javaScript applications
 
 [![NPM](https://nodei.co/npm/bearcat.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/bearcat)
